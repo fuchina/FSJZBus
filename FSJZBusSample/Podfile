@@ -1,0 +1,7 @@
+platform:ios,'8.2'
+
+target 'FSJZBusSample' do
+
+  pod 'FSJZBus', :path => '../'
+
+end
