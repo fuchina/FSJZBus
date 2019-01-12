@@ -1,1 +1,1 @@
-../../../../../FSJZBus/classes/FSDBCard/FSCardModel.h
+../../../../../FSJZBus/classes/FSCardModel.h

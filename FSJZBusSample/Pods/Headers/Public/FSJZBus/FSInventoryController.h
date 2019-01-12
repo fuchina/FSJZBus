@@ -1,1 +1,1 @@
-../../../../../FSJZBus/classes/Inventory/FSInventoryController.h
+../../../../../FSJZBus/classes/FSInventoryController.h

@@ -1,1 +1,1 @@
-../../../../../FSJZBus/classes/Inventory/FSIMBaseModel.h
+../../../../../FSJZBus/classes/FSIMBaseModel.h

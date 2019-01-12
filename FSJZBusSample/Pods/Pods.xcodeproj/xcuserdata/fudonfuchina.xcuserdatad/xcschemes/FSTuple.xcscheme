@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D505BB2FC0C0D79F90A0385C17A6D278"
+               BlueprintIdentifier = "F1402CBCFEC8AC4EEEFCF9313F7AEDB0"
                BlueprintName = "FSTuple"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libFSTuple.a">

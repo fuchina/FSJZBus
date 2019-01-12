@@ -1,0 +1,1 @@
+../../../../../FSJZBus/classes/FSChatModel.h

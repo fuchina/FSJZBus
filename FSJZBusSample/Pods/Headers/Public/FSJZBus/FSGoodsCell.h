@@ -1,1 +1,1 @@
-../../../../../FSJZBus/classes/Inventory/FSGoodsCell.h
+../../../../../FSJZBus/classes/FSGoodsCell.h

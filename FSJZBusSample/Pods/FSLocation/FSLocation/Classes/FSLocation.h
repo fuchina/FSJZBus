@@ -10,7 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 /*
-    1.需要在工程plist文件中增加NSLocationAlwaysUsageDescription,NSLocationWhenInUseUsageDescription两个字段
+    1.需要在工程plist文件中增加
+    NSLocationAlwaysUsageDescription
+    NSLocationWhenInUseUsageDescription
+    NSLocationAlwaysAndWhenInUseUsageDescription
+    字段
  */
 
 @interface FSLocation : NSObject
@@ -35,7 +39,6 @@
 // 转换为中国习惯的地址顺序
 + (NSString *)chineseAddressWithPlace:(CLPlacemark *)placemark;
 
-// 导航,coordinate为目的地
-+ (void)navigationToMapsWithDestination:(CLLocationCoordinate2D)coordinate;
++ (CGFloat)distanceLocation:(CLLocation *)location toLocation:(CLLocation *)another;
 
 @end

@@ -1,1 +1,1 @@
-../../../../../FSJZBus/classes/Inventory/FSGoodsAPI.h
+../../../../../FSJZBus/classes/FSGoodsAPI.h

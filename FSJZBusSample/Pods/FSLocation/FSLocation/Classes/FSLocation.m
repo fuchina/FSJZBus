@@ -7,39 +7,18 @@
 //
 
 #import "FSLocation.h"
-#import <MapKit/MapKit.h>
-#import "FSUIKit.h"
+#import <CoreLocation/CoreLocation.h>
+
+typedef void(^FSLocationCoordinateBlock)(NSArray<CLLocation *> *locations,NSError *bError);
 
 @interface FSLocation ()<CLLocationManagerDelegate>
 
-@property (nonatomic,strong) CLLocationManager  *manager;
-@property (nonatomic,copy) void (^coordinateBlock)(NSArray<CLLocation *> *locations,NSError *bError);
+@property (nonatomic,strong) CLLocationManager                              *manager;
+@property (nonatomic,strong) NSMutableArray<FSLocationCoordinateBlock>      *blocks;
 
 @end
 
 @implementation FSLocation
-
-static FSLocation *_instance = nil;
-+ (FSLocation *)sharedManager{
-    static dispatch_once_t predicate;
-    dispatch_once(&predicate, ^{
-        _instance = [[self alloc] init];
-    });
-    return _instance;
-}
-
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-        _manager = [[CLLocationManager alloc] init];
-        _manager.delegate = self;
-        _manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-        _manager.distanceFilter = kCLDistanceFilterNone;
-        [_manager requestWhenInUseAuthorization];
-        [_manager requestAlwaysAuthorization];
-    }
-    return self;
-}
 
 + (void)currentLongitudeAndlatitude:(void(^)(NSArray<CLLocation *> *locations,NSError *bError))completion{
     [[FSLocation sharedManager] longitudeAndlatitude:^(NSArray<CLLocation *> *locations,NSError *bError) {
@@ -74,83 +53,66 @@ static FSLocation *_instance = nil;
     return [[NSString alloc] initWithFormat:@"%@%@",placemark.subLocality?:@"",placemark.name?:@""];
 }
 
-static NSString *_map_Apple    = @"苹果地图";
-static NSString *_map_Gaode    = @"高德地图";
-static NSString *_map_Baidu    = @"百度地图";
-//static NSString *_map_Google   = @"谷歌地图";
-//static NSString *_map_Tencent  = @"腾讯地图";
-+ (void)navigationToMapsWithDestination:(CLLocationCoordinate2D)coordinate{
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    BOOL hasBaiduMap = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]];
-    if (hasBaiduMap) {
-        [array addObject:_map_Baidu];
++ (CGFloat)distanceLocation:(CLLocation *)location toLocation:(CLLocation *)another{
+    if ([location isKindOfClass:CLLocation.class] && [another isKindOfClass:CLLocation.class]) {
+        return [location distanceFromLocation:another];
     }
-    BOOL hasAMap = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]];
-    if (hasAMap) {
-        [array addObject:_map_Gaode];
-    }
-//    BOOL hasGoogleMap = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]];
-//    if (hasGoogleMap) {
-//        [array addObject:_map_Google];
-//    }
-//    BOOL hasTencentMap = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"qqmap://"]];
-//    if (hasTencentMap) {
-//        [array addObject:_map_Tencent];
-//    }
-//
-    [array addObject:_map_Apple];
-    NSMutableArray *styles = [[NSMutableArray alloc] initWithCapacity:array.count];
-    for (int x = 0; x < array.count ; x ++) {
-        [styles addObject:@(UIAlertActionStyleDefault)];
-    }
-    [FSUIKit alertOnCustomWindow:UIAlertControllerStyleActionSheet title:@"选择导航方式" message:nil actionTitles:array styles:styles handler:^(UIAlertAction *action) {
-        NSString *title = action.title;
-        if ([title isEqualToString:_map_Apple]) {
-            MKMapItem *currentLocation = [MKMapItem mapItemForCurrentLocation];
-            MKMapItem *toLocation = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil]];
-            [MKMapItem openMapsWithItems:@[currentLocation, toLocation]
-                           launchOptions:@{MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving,
-                                           MKLaunchOptionsShowsTrafficKey: [NSNumber numberWithBool:YES]}];
-        }else if ([title isEqualToString:_map_Baidu]){
-            NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=目的地&mode=driving&coord_type=gcj02",coordinate.latitude, coordinate.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            BOOL can = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]];
-            if (can) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-            }
-        }else if ([title isEqualToString:_map_Gaode]){
-            NSString *urlScheme = @"urlScheme";
-            NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-            NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-            NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=1",appName,urlScheme,coordinate.latitude, coordinate.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            
-            BOOL can = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]];
-            if (can) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-            }
-        }
-    }];
+    return -1;
 }
-    /*
-     else if (_map_Tencent){
-     NSString *urlString = [[NSString stringWithFormat:@"qqmap://map/routeplan?from=我的位置&type=drive&tocoord=%f,%f&to=终点&coord_type=1&policy=0",coordinate.latitude, coordinate.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-     BOOL can = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]];
-     if (can) {
-     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-     }
-     }
-    else if ([title isEqualToString:_map_Google]){
-        NSString *urlScheme = @"urlScheme";
-        NSString *urlString = [[NSString stringWithFormat:@"comgooglemaps://?x-source=%@&x-success=%@&saddr=&daddr=%f,%f&directionsmode=driving",[FSKit appName],urlScheme,coordinate.latitude, coordinate.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        BOOL can = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]];
-        if (can) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-        }
+
+/***********************************************************************************************************************************************/
+static FSLocation *_instance = nil;
++ (FSLocation *)sharedManager{
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        _instance = [[self alloc] init];
+    });
+    return _instance;
+}
+
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        _manager = [[CLLocationManager alloc] init];
+        _manager.delegate = self;
+        _manager.desiredAccuracy = kCLLocationAccuracyBest;
+        _manager.distanceFilter = kCLDistanceFilterNone; // kCLDistanceFilterNone为默认值，意为任何移动都会回调；如果为其他值，达到值域的移动才会回调定位数据。
+        [_manager requestWhenInUseAuthorization];
+        [_manager requestAlwaysAuthorization];
     }
-     */
+    return self;
+}
 
 - (void)longitudeAndlatitude:(void(^)(NSArray<CLLocation *> *locations,NSError *bError))completion{
-    self.coordinateBlock = completion;
-    [_manager startUpdatingLocation];
+    if (!completion) {
+        return;
+    }
+    CLAuthorizationStatus status = CLLocationManager.authorizationStatus;
+    BOOL isAuthorization = kCLAuthorizationStatusAuthorizedAlways == status || kCLAuthorizationStatusAuthorizedWhenInUse == status;
+    if (isAuthorization == NO) {
+        if (completion) {
+            NSString *desc = @"需要在工程plist文件中增加\
+            NSLocationAlwaysUsageDescription,\
+            NSLocationWhenInUseUsageDescription,\
+            NSLocationAlwaysAndWhenInUseUsageDescription,\
+            字段";
+            NSError *error = [[NSError alloc] initWithDomain:desc code:-250 userInfo:nil];
+            completion(nil,error);
+        }
+        return;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.blocks addObject:completion];
+        [self->_manager startUpdatingLocation];
+    });
+}
+
+- (NSMutableArray *)blocks{
+    if (!_blocks) {
+        _blocks = NSMutableArray.new;
+    }
+    return _blocks;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
@@ -160,11 +122,13 @@ static NSString *_map_Baidu    = @"百度地图";
         NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
         if ((now - ts) < 20) { // 20秒内的才可以
             [manager stopUpdatingLocation];
-            
-            if (self.coordinateBlock) {
-                self.coordinateBlock(locations,nil);
-                self.coordinateBlock = nil;
-            }
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (FSLocationCoordinateBlock block in self.blocks) {
+                    block(locations,nil);
+                }
+                [self.blocks removeAllObjects];
+            });
         }
     }
 }
@@ -172,10 +136,13 @@ static NSString *_map_Baidu    = @"百度地图";
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error{
     [manager stopUpdatingLocation];
-    if (self.coordinateBlock) {
-        self.coordinateBlock(nil,error);
-        self.coordinateBlock = nil;
-    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (FSLocationCoordinateBlock block in self.blocks) {
+            block(nil,error);
+        }
+        [self.blocks removeAllObjects];
+    });
 }
 
 @end

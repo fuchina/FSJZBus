@@ -1,6 +1,6 @@
 {
   "name": "FSJZBus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "summary": "FSJZBus is a tool for apps",
   "description": "This is a very small software library, offering a few methods to help with programming.",
   "homepage": "https://github.com/fuchina/FSJZBus",
@@ -13,24 +13,35 @@
   },
   "source": {
     "git": "https://github.com/fuchina/FSJZBus.git",
-    "tag": "1.0.0"
+    "tag": "1.0.1"
   },
-  "source_files": [
-    "FSJZBus/classes/FSDBCard/*.{h}",
-    "FSJZBus/classes/Inventory/*.{h}",
-    "FSJZBus/classes/Location/*.{h}"
-  ],
+  "source_files": "FSJZBus/classes/*.{h}",
   "ios": {
     "vendored_libraries": "FSJZBus/libs/libFSJZBus.a"
   },
   "platforms": {
     "ios": "8.2"
   },
+  "frameworks": [
+    "UIKit",
+    "AssetsLibrary",
+    "MultipeerConnectivity",
+    "WebKit",
+    "Photos",
+    "LocalAuthentication",
+    "StoreKit"
+  ],
   "dependencies": {
     "FSJZKit": [
 
     ],
     "FSLocation": [
+
+    ],
+    "FSGesture": [
+
+    ],
+    "YYKit": [
 
     ]
   }

@@ -1,1 +1,1 @@
-../../../../../FSJZBus/classes/Location/MapLabel.h
+../../../../../FSJZBus/classes/MapLabel.h
