@@ -97,9 +97,41 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/amazon.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/baidu.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/cctv.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/elme.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/hao123.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/iqiyi.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/jd.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/jianshu.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/mt.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/qqtv.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/taobao.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/tmall.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/txxw.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/wyxw.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/xlwb.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/youku.jpg"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/amazon.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/baidu.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/cctv.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/elme.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/hao123.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/iqiyi.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/jd.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/jianshu.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/mt.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/qqtv.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/taobao.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/tmall.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/txxw.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/wyxw.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/xlwb.jpg"
+  install_resource "${PODS_ROOT}/../../FSJZBus/website_logos/youku.jpg"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 

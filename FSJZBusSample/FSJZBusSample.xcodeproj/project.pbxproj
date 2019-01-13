@@ -173,12 +173,44 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FSJZBusSample/Pods-FSJZBusSample-resources.sh",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/amazon.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/baidu.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/cctv.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/elme.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/hao123.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/iqiyi.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/jd.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/jianshu.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/mt.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/qqtv.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/taobao.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/tmall.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/txxw.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/wyxw.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/xlwb.jpg",
+				"${PODS_ROOT}/../../FSJZBus/website_logos/youku.jpg",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/amazon.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/baidu.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/cctv.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/elme.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/hao123.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/iqiyi.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jd.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jianshu.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mt.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/qqtv.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/taobao.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/tmall.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/txxw.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/wyxw.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/xlwb.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/youku.jpg",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

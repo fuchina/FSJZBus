@@ -19,6 +19,7 @@
   "ios": {
     "vendored_libraries": "FSJZBus/libs/libFSJZBus.a"
   },
+  "resources": "FSJZBus/website_logos/*",
   "platforms": {
     "ios": "8.2"
   },

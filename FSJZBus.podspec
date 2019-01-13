@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FSJZBus'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'FSJZBus is a tool for apps'
   s.description      = <<-DESC
 		This is a very small software library, offering a few methods to help with programming.
