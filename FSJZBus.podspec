@@ -14,6 +14,8 @@ Pod::Spec.new do |s|
 
   s.source_files = 'FSJZBus/classes/*.{h}'
   s.ios.vendored_libraries = 'FSJZBus/libs/libFSJZBus.a'
+  s.resources = "FSJZBus/website_logos/*"
+
   s.ios.deployment_target = '8.2'
   
   s.frameworks = 'UIKit','AssetsLibrary','MultipeerConnectivity','WebKit','Photos','LocalAuthentication','StoreKit'
