@@ -16,12 +16,12 @@
 + (NSArray<NSString *> *)cryptorFields;
 
 // 手势密码
-+ (void)setGesturePassword:(NSString *)pwd;
-+ (NSString *)gesturePassword;
++ (void)setGesturePassword:(NSString *)pwd password:(NSString *)password;
++ (NSString *)gesturePassword:(NSString *)password;
 + (void)removeGesture;
 
-+ (NSString *)saveObject:(NSString *)value forKey:(NSString *)key;
-+ (NSString *)objectForKey:(NSString *)key;
++ (NSString *)saveObject:(NSString *)value forKey:(NSString *)key pwd:(NSString *)pwd;
++ (NSString *)objectForKey:(NSString *)key password:(NSString *)pwd;
 + (void)removeObjectForKey:(NSString *)key;
 
 @end
