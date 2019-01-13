@@ -10,4 +10,6 @@
 
 @interface ARPersonController : FSBaseController
 
+@property (nonatomic,copy) NSString *password;
+
 @end

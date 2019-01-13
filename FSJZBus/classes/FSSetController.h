@@ -10,4 +10,6 @@
 
 @interface FSSetController : FSBaseController
 
+@property (nonatomic,copy) NSString *pwd;
+
 @end

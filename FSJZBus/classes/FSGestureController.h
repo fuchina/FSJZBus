@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, FSGestureMode) {
 
 @interface FSGestureController : FSBaseController
 
+@property (nonatomic,copy)   NSString      *corePwd;
 @property (nonatomic,assign) FSGestureMode  mode;
 @property (nonatomic,assign) BOOL           hiddenTopLeftCancelButton;
 
@@ -23,7 +24,7 @@ typedef NS_ENUM(NSInteger, FSGestureMode) {
 @property (nonatomic,copy) void (^setedSuccess)(FSGestureController *bVC);
 
 // 判断有没有设置密码
-+ (BOOL)hasSettedPassword;
++ (BOOL)hasSettedPassword:(NSString *)corePwd;
 
 + (void)setHavedBeUnlockGesture:(BOOL)did;
 + (BOOL)isNeedUnlockGesture;
