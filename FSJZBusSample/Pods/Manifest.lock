@@ -8,12 +8,12 @@ PODS:
     - FSKit
   - FSDBMaster (0.0.3)
   - FSGesture (0.0.1)
-  - FSJZBus (1.0.1):
+  - FSJZBus (1.0.5):
     - FSGesture
     - FSJZKit
     - FSLocation
     - YYKit
-  - FSJZKit (0.1.1):
+  - FSJZKit (1.0.0):
     - FSBaseController
     - FSCryptor
     - FSDBMaster
@@ -80,8 +80,8 @@ SPEC CHECKSUMS:
   FSCryptor: 6d576b427b355d19d23b46d4fda560e8c30c5214
   FSDBMaster: a97c4d790af559d00a23e5bd6cd49ee27a35049a
   FSGesture: bc22fe7cbbcc2430980b8a34b5b41b4712c11236
-  FSJZBus: d8b2dccc3fe7f49483aee67b7458fbb9a9241f77
-  FSJZKit: f73f907dddf18eea8c85fd1f9eb3d7b234179cf5
+  FSJZBus: bd2322ae95066cbad140000a12478935f2001cef
+  FSJZKit: aa9bd68692d7370c5c831d6ede34f6483d1369ff
   FSKit: 1578169720d621fb12b806a8d0faf8ba95afb0e2
   FSLocation: 52e20549fc7ce42533e0500429c71d633f911d06
   FSShare: 67e546dc7de15cd46a71b3a497cd70d09cb1cb05

@@ -36,7 +36,4 @@
 + (NSString *)makeD:(NSString *)_A;
 + (NSString *)md5:(NSString *)_A;
 
-+ (NSString *)aes256EncryptString:(NSString *)content;
-+ (NSString *)aes256DecryptString:(NSString *)str;
-
 @end

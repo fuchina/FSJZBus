@@ -10,13 +10,13 @@
 
 @interface FSPwdAPI : FSBaseAPI
 
-+ (NSString *)changeCorePasswordWithOld:(NSString *)old new:(NSString *)newPwd;
++ (NSString *)changeCorePasswordWithOld:(NSString *)old new:(NSString *)new password:(NSString *)password;
 
 // 忘记了原密码
-+ (NSString *)changeCorePasswordOnlyWithNewPwd:(NSString *)newPwd;
++ (NSString *)changeCorePasswordOnlyWithNewPwd:(NSString *)newP password:(NSString *)password;
 
 // 更改环境
-+ (void)completionHandle:(NSString *)newA;
++ (void)changeLocalCorePassword:(NSString *)newA;
 
 + (NSString *)nowPwd;
 
