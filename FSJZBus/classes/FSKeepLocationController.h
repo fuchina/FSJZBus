@@ -14,5 +14,6 @@
 
 @property (nonatomic,strong) FSLocationModel    *model;
 @property (nonatomic,strong) CLLocation         *location;
+@property (nonatomic,assign) BOOL               isNewAdd;
 
 @end
