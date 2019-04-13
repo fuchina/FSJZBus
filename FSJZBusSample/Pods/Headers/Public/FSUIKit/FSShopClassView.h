@@ -1,1 +1,0 @@
-../../../FSUIKit/FSUIKit/Classes/FSShopClassView.h

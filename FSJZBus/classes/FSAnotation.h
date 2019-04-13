@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MAMapKit/MAMapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FSAnotation : NSObject<MAAnnotation>
+@interface FSAnotation : NSObject
 
 ///标注view中心坐标
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;

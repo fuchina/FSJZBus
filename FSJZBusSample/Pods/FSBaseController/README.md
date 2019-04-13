@@ -1,2 +1,0 @@
-# FSBaseController
-BaseController for project

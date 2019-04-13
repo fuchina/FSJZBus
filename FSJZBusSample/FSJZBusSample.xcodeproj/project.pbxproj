@@ -173,6 +173,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FSJZBusSample/Pods-FSJZBusSample-resources.sh",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/../../FSJZBus/website_logos/amazon.jpg",
 				"${PODS_ROOT}/../../FSJZBus/website_logos/baidu.jpg",
 				"${PODS_ROOT}/../../FSJZBus/website_logos/cctv.jpg",
@@ -195,6 +196,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/amazon.jpg",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/baidu.jpg",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/cctv.jpg",
