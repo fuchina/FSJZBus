@@ -15,10 +15,18 @@ typedef void(^FSLocationCoordinateBlock)(NSArray<CLLocation *> *locations,NSErro
 
 @property (nonatomic,strong) CLLocationManager                              *manager;
 @property (nonatomic,strong) NSMutableArray<FSLocationCoordinateBlock>      *blocks;
+@property (nonatomic,assign) NSInteger                                      delay;
 
 @end
 
 @implementation FSLocation
+
++ (void)setLocationDelay:(NSInteger)delay{
+    if (delay < 0) {
+        delay = 0;
+    }
+    [FSLocation sharedManager].delay = delay;
+}
 
 + (void)currentLongitudeAndlatitude:(void(^)(NSArray<CLLocation *> *locations,NSError *bError))completion{
     [[FSLocation sharedManager] longitudeAndlatitude:^(NSArray<CLLocation *> *locations,NSError *bError) {
@@ -60,12 +68,25 @@ typedef void(^FSLocationCoordinateBlock)(NSArray<CLLocation *> *locations,NSErro
     return -1;
 }
 
+CGFloat distanceBetweenCoordinates(CLLocationCoordinate2D coordinateA,CLLocationCoordinate2D coordinateB){
+    BOOL isARight = CLLocationCoordinate2DIsValid(coordinateA);
+    BOOL isBRight = CLLocationCoordinate2DIsValid(coordinateB);
+    if (!(isARight && isBRight)) {
+        return 0;
+    }
+    MKMapPoint pa = MKMapPointForCoordinate(coordinateA);
+    MKMapPoint pb = MKMapPointForCoordinate(coordinateB);
+    CGFloat distance = MKMetersBetweenMapPoints(pa, pb);
+    return distance;
+}
+
 /***********************************************************************************************************************************************/
 static FSLocation *_instance = nil;
 + (FSLocation *)sharedManager{
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         _instance = [[self alloc] init];
+        _instance.delay = 100000;
     });
     return _instance;
 }
@@ -120,7 +141,8 @@ static FSLocation *_instance = nil;
         CLLocation *location = locations.firstObject;
         NSTimeInterval ts = [location.timestamp timeIntervalSince1970];
         NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-        if ((now - ts) < 20) { // 20秒内的才可以
+        NSInteger delay = self.delay;
+        if ((now - ts) < delay) {
             [manager stopUpdatingLocation];
 
             dispatch_async(dispatch_get_main_queue(), ^{

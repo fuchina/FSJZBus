@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CAA6478DBD42A784249310A907B4A8C"
+               BlueprintIdentifier = "E20E77A820D5109F5F2F3DB1D1832D1C"
+               BuildableName = "libFSLocation.a"
                BlueprintName = "FSLocation"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libFSLocation.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BBB3DAAA71508CA79F2F9A9D2DFC31F2"
+               BlueprintIdentifier = "D72B0E6FCDACDE143580EF4771093C8B"
+               BuildableName = "libFSViewToImage.a"
                BlueprintName = "FSViewToImage"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libFSViewToImage.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

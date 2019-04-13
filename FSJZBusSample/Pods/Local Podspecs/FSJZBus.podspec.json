@@ -1,6 +1,6 @@
 {
   "name": "FSJZBus",
-  "version": "1.0.5",
+  "version": "1.1.3",
   "summary": "FSJZBus is a tool for apps",
   "description": "This is a very small software library, offering a few methods to help with programming.",
   "homepage": "https://github.com/fuchina/FSJZBus",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/fuchina/FSJZBus.git",
-    "tag": "1.0.5"
+    "tag": "1.1.3"
   },
   "source_files": "FSJZBus/classes/*.{h}",
   "ios": {
@@ -30,7 +30,8 @@
     "WebKit",
     "Photos",
     "LocalAuthentication",
-    "StoreKit"
+    "StoreKit",
+    "GLKit"
   ],
   "dependencies": {
     "FSJZKit": [

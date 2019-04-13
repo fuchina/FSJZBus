@@ -6,7 +6,7 @@
 //  Copyright © 2016年 fuhope. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
 /*
@@ -18,6 +18,11 @@
  */
 
 @interface FSLocation : NSObject
+
+/*
+    设置点的延时，如果延时超过delay秒，就不会返点，默认20秒
+ */
++ (void)setLocationDelay:(NSInteger)delay;
 
 /*
     获取当前经纬度的母对象数组
@@ -40,5 +45,8 @@
 + (NSString *)chineseAddressWithPlace:(CLPlacemark *)placemark;
 
 + (CGFloat)distanceLocation:(CLLocation *)location toLocation:(CLLocation *)another;
+
+// 两个GPS坐标点间的距离（米）
+CGFloat distanceBetweenCoordinates(CLLocationCoordinate2D coordinateA,CLLocationCoordinate2D coordinateB);
 
 @end

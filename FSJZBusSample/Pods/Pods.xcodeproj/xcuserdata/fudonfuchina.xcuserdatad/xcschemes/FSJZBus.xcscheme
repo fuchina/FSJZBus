@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B9ADBBB4628D0D0C7FBBF64CF5B76AD5"
+               BlueprintIdentifier = "47634EEE2363D3FAA1079BE4D8985F37"
+               BuildableName = "FSJZBus"
                BlueprintName = "FSJZBus"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "FSJZBus">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
