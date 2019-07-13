@@ -22,7 +22,7 @@
 @property (nonatomic,copy) NSString     *num;   // 数目
 
 @property (nonatomic,copy) NSString     *rest;  // 剩余
-@property (nonatomic,copy) NSString     *done;  // 售罄，一个时间秒数
+@property (nonatomic,copy) NSString     *done;  // 售罄，一个时间秒数，为何要用一个时间秒数？可以知道售罄的时间，还有其他好处么？代码中用boolValue来判断是否售罄
 @property (nonatomic,copy) NSString     *sale;  // 回收
 
 + (NSArray<NSString *> *)tableFields;

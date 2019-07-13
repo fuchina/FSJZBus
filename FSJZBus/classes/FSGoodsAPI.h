@@ -10,6 +10,7 @@
 #import "FSInventoryModel.h"
 #import "FSGoodsModel.h"
 #import "FSInventoryAllModel.h"
+#import "FSInventoryGroupModel.h"
 
 @interface FSGoodsAPI : FSBaseAPI
 
