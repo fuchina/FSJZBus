@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FSJZBus'
-  s.version          = '1.5'
+  s.version          = '1.6'
   s.summary          = 'FSJZBus is a tool for apps'
   s.description      = <<-DESC
 		This is a very small software library, offering a few methods to help with programming.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   
   s.resources = "FSJZBus/website_logos/*"
 
-  s.ios.deployment_target = '8.2'
+  s.ios.deployment_target = '9.0'
   
   s.frameworks = 'UIKit','AssetsLibrary','MultipeerConnectivity','WebKit','Photos','LocalAuthentication','StoreKit','GLKit'
   
